@@ -106,4 +106,4 @@ public class List
                 curr.next = ins;
         }
     }
-
+}
