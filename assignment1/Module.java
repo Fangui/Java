@@ -1,14 +1,12 @@
-package U08223;
-
 public class Module implements IModule
 {
   private String ID;
   private String Name;
 
-  public Module(String _ID, String _Name)
+  public Module(String ID, String Name)
   {
-    this.ID = _ID;
-    this.Name = _Name;
+    this.ID = ID;
+    this.Name = Name;
   }
 
   public String getModuleID()
@@ -24,6 +22,6 @@ public class Module implements IModule
   public static void main(String[] args)
   {
     Module test = new Module("16108849", "data_structure");
-    System.out.print(test.getModuleID());
+    System.out.print(test.getModuleID() + '\n' + test.getModuleName() + '\n');
   }
 }

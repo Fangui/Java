@@ -1,4 +1,4 @@
-package U08223;
+//package U08223;
 
 import java.util.Collection;
 
@@ -15,7 +15,7 @@ public interface IStudent {
      * @param module the Module to be enrolled
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-    public void addModule(Module module);
+//    public void addModule(Module module);
 
     /**
      * Retrieves the Student's enrolled course
@@ -39,7 +39,7 @@ public interface IStudent {
      * on
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-    public Collection<Module> getModules();
+//    public Collection<Module> getModules();
 
     /**
      * Retrieves the Student's student ID
@@ -56,5 +56,5 @@ public interface IStudent {
      * the module ID is not found
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-    public Module removeModule(String moduleID);
+//    public Module removeModule(String moduleID);
 }
