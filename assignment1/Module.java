@@ -1,3 +1,5 @@
+package U08223;
+
 public class Module implements IModule
 {
   private String ID;
