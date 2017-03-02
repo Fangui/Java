@@ -19,9 +19,4 @@ public class Module implements IModule
     return Name;
   }
 
-  public static void main(String[] args)
-  {
-    Module test = new Module("16108849", "data_structure");
-    System.out.print(test.getModuleID() + '\n' + test.getModuleName() + '\n');
-  }
 }

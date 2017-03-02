@@ -1,33 +1,55 @@
 public class StudentAssociativeArray implements IStudentAssociativeArray
 {
-  private Vector<Student> arrStudent;
+  private Vector<Node> arrStudent;
+  private int capacity;
+  private int size;
 
   public void clear()
   {
     arrStudent = null;
   }
 
+  private int hash(String key)
+  {
+    return Math.abs(key.hashcode());
+  }
+
   public boolean containsStudentID(String studentID)
   {
-    for(int i = 0; i < arrStudent.capacity(); ++i)
-      if(arrStudent[i].getStudentID() == studentID)
-        return true;
+    int h = hash(studentID);
+    int index = h % capacity;
 
-    return false;
+    Node p = arrStudent[index];
+
+    while(p != null && h != p.hkey && studentID != Node.data.getStudentID())
+      p = p->next;
+
+    return p != null;
   }
 
   public boolean containsValue(Student student)
   {
-    return arrStudent.contains(student);
+    int index = hash(student) % capacity;
+
+    Node pair = arrStudent[index];
+
+    while(pair != null  && student != Node.data)
+      pair = pair->next;
+
+    return pair != null;
   }
 
   public Student getStudent(String studentID)
   {
-    for(int i = 0; i < arr.Student.capacity(); ++i)
-      if(arrStudent[i].getStudentID() == studentID)
-        return arrStudent[i];
+    int h = hash(studentID);
+    int index = h % capacity;
 
-    return null;
+    Node p = arrStudent[index];
+
+    while(p != null && h != p.hkey && studentID != Node.data.getStudentID())
+      p = p->next;
+
+    return p;
   }
 
   public boolean isEmpty()
@@ -35,5 +57,21 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     return arrStudent.isEmpty();
   }
 
-  
+/*  public Collection<String> keySet()
+  {
+    if( (float)size / (float)capacity > 0.75)
+    {
+      
+    }
+  }
+*/
+
 }
+
+
+
+
+
+
+
+
