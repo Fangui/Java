@@ -25,11 +25,4 @@ public class Student implements IStudent
   {
     return ID;
   }
-
-  public static void main(String[] args)
-  {
-    Student test = new Student("data_struct", "Bruh", "1610");
-    System.out.print(test.getCourse() + '\n' + test.getName() + '\n' + test.getStudentID() + '\n');
-  }
-
 }

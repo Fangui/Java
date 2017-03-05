@@ -12,6 +12,7 @@ public interface IStudentAssociativeArray {
      * Empties the associative array.
      * @pre true
      */
+    public void printHash();
     public void clear();
     
     /**
@@ -56,7 +57,7 @@ public interface IStudentAssociativeArray {
      * @return a Collection view of the Student IDs (keys) contained by the associative
      * array
      */ 
-    public Collection<String> keySet();
+//    public Collection<String> keySet();
     
     /**
      * Inserts a Student into the associative array, with the key of the supplied
@@ -65,7 +66,7 @@ public interface IStudentAssociativeArray {
      * overwritten.
      * @pre true
      */
-//    public void put(Student student);
+    public void put(Student student);
     
     /**
      * Removes and returns a Student from the associative array, with the key
@@ -74,8 +75,8 @@ public interface IStudentAssociativeArray {
      * @pre true
      * @return the removed Student object mapped to the studentID, or null if
      * the studentID does not exist.
-     */
-//    public Student remove(String studentID);
+    */
+    public Student remove(String studentID);
     
     /**
      * Returns the number of Students in the associative array
