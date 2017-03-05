@@ -1,6 +1,8 @@
 //package U08223;
 
 import java.util.Collection;
+import java.util.ArrayList;
+
 /**
  *
  * @author Daniel Brown revised D Lightfoot
@@ -57,7 +59,7 @@ public interface IStudentAssociativeArray {
      * @return a Collection view of the Student IDs (keys) contained by the associative
      * array
      */ 
-//    public Collection<String> keySet();
+    public Collection<String> keySet();
     
     /**
      * Inserts a Student into the associative array, with the key of the supplied

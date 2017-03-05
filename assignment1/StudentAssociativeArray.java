@@ -1,3 +1,6 @@
+import java.util.Vector;
+import java.util.Collection;
+
 public class StudentAssociativeArray implements IStudentAssociativeArray
 {
   private Node arrStudent[];
@@ -66,24 +69,25 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     return size == 0;
   }
 
-/*  public Collection<String> keySet()
+  public Collection <String> keySet()
   {
-   String[] array = new String[size];
-    
+    Collection<String> arr =  new Vector<String>();
     int j = 0;
-    for(int i = 0; i < capacity; ++i)
+    Node p = null;
+
+    for(int i = 0; i < capacity && j < size; ++i)
     {
-      Node p = arrStudent[i];
+      p = arrStudent[i];
       while(p != null)
       {
-        array[j] = p.data.getStudentID();
+        arr.add(p.data.getStudentID());
         p = p.next;
         ++j;
       }
     }
-    return array;
+    return arr;
   }
-*/
+
   public void put(Student student)
   {
     int h, index;
@@ -97,7 +101,7 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
         p = arrStudent[i];
         while(p != null)
         {
-          index = p.hkey % capacity;
+          index = p.hkey % (2 * capacity);
           ins = new Node();
           ins.data = p.data;
           ins.hkey = p.hkey;
@@ -121,9 +125,15 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     h = hash(student.getStudentID());
     index = h % capacity;
     p = arrStudent[index];
-
+    ins = new Node();
+    ins.data = student;
+    ins.hkey = h;
+    ins.next = null;
     if(p == null)
+    {
       arrStudent[index] = ins;
+      ++size;
+    }
     else
     {
       while(p.next != null)
@@ -135,9 +145,6 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
         }
         p = p.next;
       }
-      ins.data = student;
-      ins.hkey = h;
-      ins.next = null;
       ++size;
       p.next = ins;
     }
@@ -149,6 +156,7 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     int index = h % capacity;
     Node p = arrStudent[index], prev = null;
     Student student = null;
+
     while(p != null && p.hkey != h && p.data.getStudentID() != studentID)
     {
       prev = p;
@@ -158,8 +166,8 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     {
       if(p != null)
       {
-        student = arrStudent[index].data;
-        arrStudent[index] = null;
+        student = p.data;
+        arrStudent[index] = p.next;
         --size;
         return student;
       }
@@ -182,13 +190,16 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
     for(int i = 0; i < capacity; ++i)
     {
       Node p = arrStudent[i];
+      if(p != null)
+        System.out.println("new node");
+
       while(p != null)
       {
-        System.out.println(p.data.getStudentID() + p.data.getName() + "\n");
+        System.out.print(p.data.getStudentID() + p.data.getName() + "\n");
         p = p.next;
       }
     }
-
+    System.out.println();
   }
 }
 
