@@ -1,5 +1,5 @@
 clean:
 	rm -f *.class
-	rm -f *.sw
+	rm -f *.swp
 	clear
 	
