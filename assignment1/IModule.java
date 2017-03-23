@@ -1,8 +1,8 @@
-//package U08223;
+package assignment1;
 
 /**
  *
- * @author Daniel Brown revised D Lightfoot
+ * @author 16108849
  */
  
 public interface IModule {

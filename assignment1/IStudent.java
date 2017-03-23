@@ -1,10 +1,9 @@
-//package U08223;
-
+package assignment1;
 import java.util.Collection;
 
 /**
  *
- * @author Daniel Brown revised D Lightfoot
+ * @author 16108849
  */
  
 public interface IStudent {
@@ -39,7 +38,7 @@ public interface IStudent {
      * on
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-//    public Collection<Module> getModules();
+    public Collection<Module> getModules();
 
     /**
      * Retrieves the Student's student ID
