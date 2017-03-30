@@ -1,20 +1,23 @@
-//package U08223;
+package assignment1;
 
 import java.util.Collection;
-import java.util.ArrayList;
 
 /**
  *
- * @author Daniel Brown revised D Lightfoot
+ * @author 16108849
  */
  
 public interface IStudentAssociativeArray {
     
-    /**
+    
+    public void printHash();
+    
+    public int getCapacity();
+    
+     /**
      * Empties the associative array.
      * @pre true
      */
-    public void printHash();
     public void clear();
     
     /**

@@ -1,3 +1,12 @@
+package assignment1;
+import java.util.Collection;
+
+
+/**
+ *
+ * @author 16108849
+ */
+
 public class Student implements IStudent
 {
   private String Course;
@@ -11,16 +20,25 @@ public class Student implements IStudent
     this.ID = ID;
   }
 
+  @Override
   public String getCourse()
   {
     return Course;
   }
 
+  @Override
+  public Collection<Module> getModules()
+  {
+      return null;
+  }
+  
+  @Override
   public String getName()
   {
     return Name;
   }
 
+  @Override
   public String getStudentID()
   {
     return ID;
