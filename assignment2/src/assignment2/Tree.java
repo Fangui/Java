@@ -7,12 +7,13 @@ package assignment2;
 
 /**
  *
- * @author Use
+ * 16108849
  */
 public class Tree 
 {
     Module mod;
     Tree left, right;
+    
     
     public Tree(Module mod)
     {
