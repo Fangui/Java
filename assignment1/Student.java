@@ -12,14 +12,22 @@ public class Student implements IStudent
   private String Course;
   private String Name;
   private String ID;
-
+  ModuleBinaryTree tree;
+  
   public Student(String Course, String Name, String ID)
   {
     this.Course = Course;
     this.Name = Name;
     this.ID = ID;
+    tree = new ModuleBinaryTree();
   }
 
+  @Override
+  public void addModule(Module module)
+  {
+      tree.add(module);
+  }
+  
   @Override
   public String getCourse()
   {
@@ -29,7 +37,7 @@ public class Student implements IStudent
   @Override
   public Collection<Module> getModules()
   {
-      return null;
+      return tree.getModules();
   }
   
   @Override
@@ -42,5 +50,11 @@ public class Student implements IStudent
   public String getStudentID()
   {
     return ID;
+  }
+  
+  @Override
+  public Module removeModule(String moduleID)
+  {
+      return tree.remove(moduleID);
   }
 }

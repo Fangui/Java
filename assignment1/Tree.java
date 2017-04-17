@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package assignment2;
+package assignment1;
 
 /**
  *
  * 16108849
  */
+
 public class Tree 
 {
     Module mod;

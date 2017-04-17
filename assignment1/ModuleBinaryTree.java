@@ -1,4 +1,4 @@
-package assignment2;
+package assignment1;
 
 import java.util.Collection;
 import java.util.Vector;
@@ -10,6 +10,11 @@ import java.util.Vector;
 public class ModuleBinaryTree
 {
     private Tree tree;
+    
+    public ModuleBinaryTree()
+    {
+        tree = null;
+    }
     
     private int max(int a, int b)
     {
@@ -38,8 +43,9 @@ public class ModuleBinaryTree
             int cmp;
             while(root != null)
             {
+                String s = module.getModuleID();
                 cmp = 
-                module.getModuleID().compareToIgnoreCase(root.mod.getModuleID());
+                s.compareToIgnoreCase(root.mod.getModuleID());
             
                 if(cmp > 0)
                 {
@@ -85,16 +91,23 @@ public class ModuleBinaryTree
     {
         Tree root = tree;
         int cmp;
+        int cpt = 0;
+        Log log = new Log();
         while(root != null && (cmp = 
               moduleID.compareToIgnoreCase(root.mod.getModuleID()) ) != 0)
-        { 
+        {
+            ++cpt;
             if(cmp > 0)
                 root = root.right;
             else
                 root = root.left;
         }
         if(root != null)
+        {
+            log.getUpdate(moduleID, cpt);
             return root.mod;
+        }
+        log.getFailUpdate(moduleID);
         return null;
     }
     
@@ -102,8 +115,8 @@ public class ModuleBinaryTree
     {
         if(tree != null)
         {
-            arr.add(tree.mod);
             getModulesRec(tree.left, arr);
+            arr.add(tree.mod);
             getModulesRec(tree.right, arr);
             
         }
@@ -155,9 +168,12 @@ public class ModuleBinaryTree
         Tree cur = tree;
         Tree prev = null;
         int cmp;
+        int cpt = 0;
+        Log log = new Log();
         while(cur != null && 
              (cmp = moduleID.compareToIgnoreCase(cur.mod.getModuleID()) ) != 0) 
         {
+            ++cpt;
             prev = cur;
             
             if(cmp < 0) 
@@ -165,14 +181,21 @@ public class ModuleBinaryTree
              else 
                 cur = cur.right;
         }
+        if(cur == null)
+        {
+            log.removeFailUpdate(moduleID);
+            return null;
+        }
+        log.removeStart(cur);
         Module module = cur.mod;
         if (prev == null)
             tree = removeID(cur);
         else if (prev.left == cur) 
             prev.left = removeID(cur);   
         else 
-            prev.right = (cur);
+            prev.right = removeID(cur);
         
+        log.removeUpdate(moduleID, cpt, sizeRec(tree), height(tree));
         return module;
     }
     

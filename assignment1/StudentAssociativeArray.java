@@ -232,6 +232,8 @@ public class StudentAssociativeArray implements IStudentAssociativeArray
       --size;
       log.printRemove(p, coli);
     }
+    else
+         log.printRemoveFail(studentID);
     return student;
   }
   

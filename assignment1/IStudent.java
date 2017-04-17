@@ -14,7 +14,7 @@ public interface IStudent {
      * @param module the Module to be enrolled
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-//    public void addModule(Module module);
+    public void addModule(Module module);
 
     /**
      * Retrieves the Student's enrolled course
@@ -55,5 +55,5 @@ public interface IStudent {
      * the module ID is not found
 	 * DO NOT IMPLEMENT FOR COURSEWORK 1
      */
-//    public Module removeModule(String moduleID);
+    public Module removeModule(String moduleID);
 }
